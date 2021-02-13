@@ -2,6 +2,10 @@
 
 create a VRChat avatar repository from your template repository and push Gitlab
 
+## Install
+
+[download zip](https://github.com/Narazaka/create-vrchat-avatar/archive/master.zip)
+
 ## Usage
 
 recommend: install [GitExtensions](http://gitextensions.github.io)
