@@ -1,4 +1,4 @@
-Param([parameter(mandatory=$true)][string]$id, [parameter(mandatory=$true)][string]$url)
+Param([parameter(mandatory = $true)][string]$id, [parameter(mandatory = $true)][string]$url)
 
 . "./setting.ps1"
 
@@ -10,11 +10,12 @@ $title = (Invoke-WebRequest $url).ParsedHtml.getElementsByClassname("u-tpg-title
 
 if (Test-Path "$repo_path/.git") {
     Write-Output "repo cloned"
-} else {
+}
+else {
     git clone $template_repo $repo_path
 }
 Set-Location $repo_path
 git remote rename origin upstream
 git remote add origin "$origin_prefix$fullid.git"
-git push --set-upstream origin master
+git push --set-upstream origin sdk3
 GitExtensions.exe openrepo $repo_path
