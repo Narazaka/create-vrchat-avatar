@@ -17,5 +17,5 @@ else {
 Set-Location $repo_path
 git remote rename origin upstream
 git remote add origin "$origin_prefix$fullid.git"
-git push --set-upstream origin sdk3
+git push --set-upstream origin $default_branch
 GitExtensions.exe openrepo $repo_path
