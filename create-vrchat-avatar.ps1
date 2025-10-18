@@ -5,8 +5,8 @@ Param([parameter(mandatory = $true)][string]$id, [parameter(mandatory = $true)][
 $fullid = $fullid_prefix + $id.ToLower()
 $repo_path = "$repo_basepath$fullid"
 
-$title = (Invoke-WebRequest $url).ParsedHtml.getElementsByClassname("u-tpg-title1")[0].innerText
-.\lab.exe project create $fullid --description "$title $url"
+$title = (Invoke-WebRequest $url).ParsedHtml.getElementsByTagName("title")[0].innerText
+glab project create $fullid --description "$title $url"
 
 if (Test-Path "$repo_path/.git") {
     Write-Output "repo cloned"
