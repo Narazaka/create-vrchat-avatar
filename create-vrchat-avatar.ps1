@@ -5,7 +5,7 @@ Param([parameter(mandatory = $true)][string]$id, [parameter(mandatory = $true)][
 $fullid = $fullid_prefix + $id.ToLower()
 $repo_path = "$repo_basepath$fullid"
 
-$title = (Invoke-WebRequest -UseBasicParsing $url).ParsedHtml.getElementsByTagName("title")[0].innerText
+$title = (Invoke-WebRequest $url).ParsedHtml.getElementsByTagName("title")[0].innerText
 $env:GLAB_NO_PROMPT = "1"
 glab repo create $fullid --skipGitInit --description "$title $url"
 
